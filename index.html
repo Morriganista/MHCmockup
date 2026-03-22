@@ -118,6 +118,22 @@ section{padding:6rem 8vw}
 .spec-tag{display:inline-block;margin-top:1.2rem;background:var(--pink-light);color:var(--pink-dark);border-radius:50px;padding:.3rem .9rem;font-size:.75rem;font-weight:700;border:1.5px solid var(--pink)}
 .spec-corner{position:absolute;bottom:-8px;right:-4px;font-size:4rem;opacity:.06;line-height:1;transform:rotate(15deg)}
 
+/* MASTERCLASSES */
+#masterclasses{background:var(--white)}
+.mc-header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:2rem;margin-bottom:3rem}
+.mc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.mc-card{background:var(--cream);border-radius:24px;padding:2rem 1.6rem;border:2px solid var(--pink);position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s;min-width:0}
+.mc-card:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(232,96,44,.11);border-color:var(--orange)}
+.mc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--orange),var(--pink))}
+.mc-icon{font-size:2rem;margin-bottom:1rem;display:block}
+.mc-card h3{font-family:'Fredoka One',cursive;font-size:1.2rem;margin-bottom:.7rem;color:var(--text-dark)}
+.mc-card p{font-size:.88rem;line-height:1.75;color:var(--text-soft);margin-bottom:1rem}
+.mc-badges{display:flex;flex-wrap:wrap;gap:.4rem}
+.mc-badge{display:inline-flex;align-items:center;gap:.3rem;border-radius:50px;padding:.28rem .8rem;font-size:.72rem;font-weight:700;border:1.5px solid}
+.mc-badge.online{background:#EEF4FB;color:#1A6FA8;border-color:#B3CCE8}
+.mc-badge.inperson{background:var(--pink-light);color:var(--pink-dark);border-color:var(--pink)}
+.mc-badge.partner{background:var(--orange-pale);color:#b84620;border-color:var(--orange-light)}
+
 /* LEDEN */
 #leden{background:var(--white)}
 .leden-intro{max-width:640px;margin-bottom:3rem}
@@ -233,8 +249,10 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.3)}
 }
 @media(max-width:960px){
   .ga-grid{grid-template-columns:repeat(2,1fr)}
+  .mc-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:580px){
+  .mc-grid{grid-template-columns:1fr}
   .ga-grid{grid-template-columns:repeat(2,1fr)}
   .specialisten-grid{grid-template-columns:1fr}
   .leden-grid{grid-template-columns:repeat(2,1fr)}
@@ -249,6 +267,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.3)}
   <ul class="nav-links">
     <li><a href="#over-ons">Over Ons</a></li>
     <li><a href="#specialiteiten">Specialiteiten</a></li>
+    <li><a href="#masterclasses">Masterclasses</a></li>
     <li><a href="#specialisten">Specialisten</a></li>
     <li><a href="#hondenvanger">Hondenvanger</a></li>
     <li><a href="#leden">Leden</a></li>
@@ -477,6 +496,71 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.3)}
     <span class="leden-cta-paws right">🐾</span>
     <p>Is jouw hond de volgende die hier vriendjes maakt? 🐶</p>
     <a href="#contact" class="btn-primary">🐾 Meld je aan bij De MHC</a>
+  </div>
+</section>
+
+<section id="masterclasses">
+  <div class="mc-header">
+    <div>
+      <p class="section-label">🎓 Masterclasses</p>
+      <h2 class="section-title">Leer van de <em>besten</em></h2>
+      <p class="section-sub">Onze masterclasses worden begeleid door gecertificeerde specialisten. Kies het formaat dat bij jou en je hond past — online, in-person of in de natuur.</p>
+    </div>
+    <a href="#contact" class="btn-primary">📋 Inschrijven</a>
+  </div>
+  <div class="mc-grid">
+
+    <div class="mc-card">
+      <span class="mc-icon">🧠</span>
+      <h3>Gedragstherapie</h3>
+      <p>Diepgaande sessies gericht op angst, trauma en gedragsproblemen — op een veilige, rustige manier samen met jouw therapeut.</p>
+      <div class="mc-badges">
+        <span class="mc-badge online">💬 WhatsApp</span>
+        <span class="mc-badge online">🎥 Zoom</span>
+        <span class="mc-badge inperson">📍 Trainingsveld</span>
+      </div>
+    </div>
+
+    <div class="mc-card">
+      <span class="mc-icon">🐺</span>
+      <h3>Roedeltherapie</h3>
+      <p>Off-leash training in een natuurlijke omgeving, samen met ervaren roedeltherapeuten. In samenwerking met Fikabos.</p>
+      <div class="mc-badges">
+        <span class="mc-badge inperson">📍 In-person</span>
+        <span class="mc-badge partner">🌲 Fikabos</span>
+      </div>
+    </div>
+
+    <div class="mc-card">
+      <span class="mc-icon">💪</span>
+      <h3>Fysieke Training</h3>
+      <p>Bewegingsanalyse en fysieke oefeningen onder begeleiding van onze fysiotherapeut, afgestemd op de behoeften van jouw hond.</p>
+      <div class="mc-badges">
+        <span class="mc-badge online">💬 WhatsApp</span>
+        <span class="mc-badge online">🎥 Zoom</span>
+        <span class="mc-badge inperson">📍 Fysiotherapeut</span>
+      </div>
+    </div>
+
+    <div class="mc-card">
+      <span class="mc-icon">🦮</span>
+      <h3>On- &amp; Off-leash Training</h3>
+      <p>Lijntraining én vrije training gecombineerd. Werken aan controle, vertrouwen en communicatie tussen hond en baasje.</p>
+      <div class="mc-badges">
+        <span class="mc-badge inperson">📍 Trainingsveld</span>
+      </div>
+    </div>
+
+    <div class="mc-card">
+      <span class="mc-icon">🤝</span>
+      <h3>Sociale Therapie</h3>
+      <p>Honden leren omgaan met andere honden en mensen in een gecontroleerde, natuurlijke omgeving. In samenwerking met Fikabos.</p>
+      <div class="mc-badges">
+        <span class="mc-badge inperson">📍 In-person</span>
+        <span class="mc-badge partner">🌲 Fikabos</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
