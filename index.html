@@ -231,16 +231,16 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.3)}
     <li><a href="#leden">Leden</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <div class="nav-dropdown">
-    <button class="nav-cta" onclick="this.parentElement.classList.toggle('open')">🐶 Aanmelden ▾</button>
-    <div class="nav-dropdown-menu">
+  <div class="nav-dropdown" id="nav-dropdown">
+    <button class="nav-cta" id="dropdown-toggle">🐶 Aanmelden ▾</button>
+    <div class="nav-dropdown-menu" id="dropdown-menu">
       <p class="dropdown-question">Is jouw hond mooi?</p>
-      <label class="dropdown-option upload-option">
+      <label class="dropdown-option upload-option" id="upload-label">
         <span>📸 Ja, hier is een foto</span>
-        <input type="file" accept="image/*" class="upload-input" onchange="handleUpload(this)">
+        <input type="file" accept="image/*" class="upload-input" id="foto-input">
         <span class="upload-hint" id="upload-hint">Kies een bestand...</span>
       </label>
-      <button class="dropdown-option nee-option" onclick="handleNee()">😔 Nee, sorry MHC</button>
+      <button class="dropdown-option nee-option" id="nee-btn">😔 Nee, sorry MHC</button>
     </div>
   </div>
 </nav>
@@ -549,24 +549,44 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.3)}
 </footer>
 
 <script>
-const nav = document.getElementById('main-nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
-document.addEventListener('click', (e) => {
-  const dd = document.querySelector('.nav-dropdown');
-  if (dd && !dd.contains(e.target)) dd.classList.remove('open');
-});
-function handleUpload(input) {
-  const hint = document.getElementById('upload-hint');
-  if (input.files && input.files[0]) {
-    hint.textContent = '✅ ' + input.files[0].name + ' — Wat een schoonheid!';
-    hint.style.color = 'var(--orange)';
-  }
-}
-function handleNee() {
-  const menu = document.querySelector('.nav-dropdown-menu');
-  menu.innerHTML = '<p style="padding:.8rem 1rem;font-size:.88rem;font-weight:700;color:var(--text-mid);text-align:center">😢 Dat is jammer...<br><span style="font-size:.78rem;font-weight:400;color:var(--text-soft)">Kom toch snuffelen, wie weet!</span></p>';
-  setTimeout(() => { document.querySelector('.nav-dropdown').classList.remove('open'); }, 2200);
-}
+(function() {
+  var nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', function() {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  var toggle = document.getElementById('dropdown-toggle');
+  var dropdown = document.getElementById('nav-dropdown');
+  var menu = document.getElementById('dropdown-menu');
+  var fotoInput = document.getElementById('foto-input');
+  var hint = document.getElementById('upload-hint');
+  var neeBtn = document.getElementById('nee-btn');
+
+  toggle.addEventListener('click', function(e) {
+    e.stopPropagation();
+    dropdown.classList.toggle('open');
+  });
+
+  menu.addEventListener('click', function(e) {
+    e.stopPropagation();
+  });
+
+  document.addEventListener('click', function() {
+    dropdown.classList.remove('open');
+  });
+
+  fotoInput.addEventListener('change', function() {
+    if (fotoInput.files && fotoInput.files[0]) {
+      hint.textContent = '✅ ' + fotoInput.files[0].name + ' — Wat een schoonheid!';
+      hint.style.color = 'var(--orange)';
+    }
+  });
+
+  neeBtn.addEventListener('click', function() {
+    menu.innerHTML = '<p style="padding:.8rem 1rem;font-size:.9rem;font-weight:700;color:var(--text-mid);text-align:center;line-height:1.6">😢 Dat is jammer...<br><span style="font-size:.82rem;font-weight:400;color:var(--text-soft)">Kom toch snuffelen, wie weet!</span></p>';
+    setTimeout(function() { dropdown.classList.remove('open'); }, 2200);
+  });
+})();
 </script>
 </body>
 </html>
