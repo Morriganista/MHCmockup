@@ -197,6 +197,25 @@ section{padding:6rem 8vw}
 .hv-dot span:first-child{font-size:2rem}
 .hv-dot span:last-child{font-size:.78rem;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase}
 
+/* GUARDIAN ANGELS */
+#guardian-angels{background:linear-gradient(160deg,#F7F0FB 0%,#FDF3F8 50%,#F0F4FB 100%)}
+.ga-intro{max-width:640px;margin-bottom:3rem}
+.ga-intro .section-label{color:#9B7BB8}
+.ga-intro .section-title em{color:#9B7BB8}
+.ga-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.ga-card{background:rgba(255,255,255,.75);border-radius:24px;padding:1.6rem 1rem;text-align:center;transition:transform .25s;border:2px solid #DDD0EE;position:relative;overflow:hidden;backdrop-filter:blur(4px)}
+.ga-card:hover{transform:translateY(-4px)}
+.ga-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(180,150,220,.12),transparent 70%);pointer-events:none}
+.ga-card::after{content:attr(data-symbol);position:absolute;bottom:8px;right:10px;font-size:1.2rem;opacity:.15}
+.ga-avatar{width:64px;height:64px;border-radius:50%;margin:0 auto .9rem;display:flex;align-items:center;justify-content:center;font-size:1.8rem;background:#E8DAFA;border:3px solid #fff;box-shadow:0 2px 12px rgba(155,123,184,.2)}
+.ga-name{font-family:'Fredoka One',cursive;font-size:1.1rem;margin-bottom:.1rem;color:#4A3560}
+.ga-title{font-size:.78rem;color:#9B7BB8;margin-bottom:.15rem;font-style:italic}
+.ga-owner{font-size:.78rem;color:#7A6590;margin-bottom:.7rem;font-weight:600}
+.ga-tag{display:inline-block;background:rgba(155,123,184,.12);color:#7A5CA8;border-radius:50px;padding:.22rem .7rem;font-size:.7rem;font-weight:700;border:1.5px solid #DDD0EE}
+.ga-footer{margin-top:2.5rem;text-align:center;padding:2rem;background:rgba(255,255,255,.6);border-radius:24px;border:2px dashed #DDD0EE}
+.ga-footer p{font-family:'Fredoka One',cursive;font-size:1.2rem;color:#6A5580;line-height:1.6}
+.ga-footer span{font-size:1.6rem;display:block;margin-bottom:.6rem}
+
 /* FOOTER */
 footer{background:#1E0E10;border-top:2px dashed rgba(255,255,255,.08);padding:1.8rem 8vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 footer .logo{font-family:'Fredoka One',cursive;font-size:1.4rem;color:white}
@@ -212,7 +231,11 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.3)}
   .leden-grid{grid-template-columns:repeat(2,1fr)}
   .nav-links{display:none}
 }
+@media(max-width:960px){
+  .ga-grid{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:580px){
+  .ga-grid{grid-template-columns:repeat(2,1fr)}
   .specialisten-grid{grid-template-columns:1fr}
   .leden-grid{grid-template-columns:repeat(2,1fr)}
   .form-row{grid-template-columns:1fr}
@@ -229,6 +252,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.3)}
     <li><a href="#specialisten">Specialisten</a></li>
     <li><a href="#hondenvanger">Hondenvanger</a></li>
     <li><a href="#leden">Leden</a></li>
+    <li><a href="#guardian-angels">Guardian Angels</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-dropdown" id="nav-dropdown">
@@ -503,6 +527,53 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.3)}
       <span class="specialist-tag">Sociologie</span>
     </div>
 
+  </div>
+</section>
+
+<section id="guardian-angels">
+  <div class="ga-intro">
+    <p class="section-label">🕊️ Guardian Angels</p>
+    <h2 class="section-title">Voor altijd in <em>ons hart</em></h2>
+    <p class="section-sub">Sommige pootafdrukken laten een onuitwisbaar spoor achter. Wij eren de lieve zielen die ons hebben verlaten — voor altijd een deel van onze roedel.</p>
+  </div>
+  <div class="ga-grid">
+
+    <div class="ga-card" data-symbol="🕊️">
+      <div class="ga-avatar">🐾</div>
+      <p class="ga-name">Boots</p>
+      <p class="ga-title">Absolute Angel</p>
+      <p class="ga-owner">baasje: P&amp;M</p>
+      <span class="ga-tag">Voor altijd geliefd</span>
+    </div>
+
+    <div class="ga-card" data-symbol="✨">
+      <div class="ga-avatar" style="background:#E8D8F5;">🦊</div>
+      <p class="ga-name">Keiko</p>
+      <p class="ga-title">Akita Princess</p>
+      <p class="ga-owner">baasje: D&amp;J</p>
+      <span class="ga-tag">Voor altijd geliefd</span>
+    </div>
+
+    <div class="ga-card" data-symbol="☀️">
+      <div class="ga-avatar" style="background:#FFF0D0;">🌟</div>
+      <p class="ga-name">Juneau</p>
+      <p class="ga-title">My Sunshine</p>
+      <p class="ga-owner">baasje: M&amp;N</p>
+      <span class="ga-tag">Voor altijd geliefd</span>
+    </div>
+
+    <div class="ga-card" data-symbol="🌙">
+      <div class="ga-avatar" style="background:#E0E8F8;">🐺</div>
+      <p class="ga-name">Demon</p>
+      <p class="ga-title">Moon Moon</p>
+      <p class="ga-owner">baasje: M&amp;N</p>
+      <span class="ga-tag">Voor altijd geliefd</span>
+    </div>
+
+  </div>
+  <div class="ga-footer">
+    <span>🕊️</span>
+    <p>We'll meet again.</p>
   </div>
 </section>
 
