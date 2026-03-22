@@ -226,6 +226,23 @@ section{padding:6rem 8vw}
 .hv-dot span:first-child{font-size:2rem}
 .hv-dot span:last-child{font-size:.78rem;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase}
 
+/* OMA JANNIE */
+#oma-jannie{background:linear-gradient(135deg,#FFF8F0 0%,#FFF0F5 100%);text-align:center;position:relative;overflow:hidden}
+#oma-jannie::before{content:'';position:absolute;inset:0;background-image:radial-gradient(#F2C4CC 1.2px,transparent 1.2px);background-size:24px 24px;opacity:.25;pointer-events:none}
+.oj-inner{max-width:680px;margin:0 auto;position:relative;z-index:1}
+.oj-avatar-wrap{position:relative;display:inline-block;margin-bottom:2rem}
+.oj-avatar{width:140px;height:140px;border-radius:50%;background:linear-gradient(135deg,#FDEAED,#FFF0D8);border:4px solid #fff;box-shadow:0 8px 32px rgba(232,96,44,.15);display:flex;align-items:center;justify-content:center;margin:0 auto}
+.oj-halo{position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:160px;height:160px;border-radius:50%;border:3px dashed #F2C4CC;animation:haloPulse 3s ease-in-out infinite}
+@keyframes haloPulse{0%,100%{opacity:.5;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.04)}}
+.oj-paw-left,.oj-paw-right{position:absolute;font-size:1.4rem;opacity:.35}
+.oj-paw-left{bottom:-4px;left:-8px;transform:rotate(-20deg)}
+.oj-paw-right{bottom:-4px;right:-8px;transform:rotate(20deg)}
+.oj-name{font-family:'Fredoka One',cursive;font-size:2.4rem;color:var(--text-dark);margin-bottom:.3rem}
+.oj-title{font-size:.82rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:1.4rem}
+.oj-desc{font-size:1.05rem;line-height:1.85;color:var(--text-mid);max-width:520px;margin:0 auto 2rem}
+.oj-tags{display:flex;justify-content:center;flex-wrap:wrap;gap:.7rem;margin-bottom:2rem}
+.oj-tag{background:#fff;border:2px solid var(--pink);border-radius:50px;padding:.35rem 1rem;font-size:.82rem;font-weight:700;color:var(--text-mid)}
+
 /* GUARDIAN ANGELS */
 #guardian-angels{background:linear-gradient(160deg,#F7F0FB 0%,#FDF3F8 50%,#F0F4FB 100%)}
 .ga-intro{max-width:640px;margin-bottom:3rem}
@@ -281,6 +298,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.3)}
     <li><a href="#over-ons">Over Ons</a></li>
     <li><a href="#specialiteiten">Specialiteiten</a></li>
     <li><a href="#masterclasses">Masterclasses</a></li>
+    <li><a href="#oma-jannie">Oma Jannie</a></li>
     <li><a href="#specialisten">Specialisten</a></li>
     <li><a href="#hondenvanger">Hondenvanger</a></li>
     <li><a href="#leden">Leden</a></li>
@@ -529,6 +547,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.3)}
     <div class="sw-badge">☀️ The Shoes Way</div>
     <h2 class="sw-title"><em>Mythisch.</em><br>Trek je eigen pad.</h2>
     <p class="sw-desc">DGAF mentality.</p>
+    <p style="font-size:.95rem;line-height:1.8;color:rgba(255,255,255,.55);max-width:480px;margin:0 auto 2rem;">Sommige honden trekken hun eigen pad — en dat mag!</p>
     <div class="sw-dots">
       <div class="sw-dot"><span>🌀</span><span class="sw-dot-label">Mythisch</span></div>
       <div class="sw-dot"><span>👣</span><span class="sw-dot-label">Trek je eigen pad</span></div>
@@ -607,14 +626,6 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.3)}
       <p class="lid-breed">Alaskan Husky</p>
       <p class="lid-owner">baasje: M&amp;N</p>
       <span class="lid-tag">Vrij Spelen</span>
-    </div>
-
-    <div class="lid-card" data-paw="🐐" style="background:#F0FBF0;border-color:#A8D5A8">
-      <div class="lid-avatar" style="background:#2E7D32;">🐐</div>
-      <p class="lid-dogname">Ons Moeders</p>
-      <p class="lid-breed">Berggeit</p>
-      <p class="lid-owner">baasje van alle honden</p>
-      <span class="lid-tag" style="background:#F0FBF0;color:#2E7D32;border-color:#A8D5A8">De Baas</span>
     </div>
 
   </div>
@@ -699,6 +710,69 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.3)}
       </div>
     </div>
 
+  </div>
+</section>
+
+<section id="oma-jannie">
+  <div class="oj-inner">
+    <div class="oj-avatar-wrap">
+      <div class="oj-halo"></div>
+      <div class="oj-avatar">
+        <svg viewBox="0 0 120 120" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+          <!-- body / cardigan -->
+          <ellipse cx="60" cy="98" rx="38" ry="28" fill="#F2C4CC"/>
+          <ellipse cx="60" cy="88" rx="28" ry="20" fill="#E8A0AD"/>
+          <!-- cardigan buttons -->
+          <circle cx="60" cy="80" r="2.5" fill="#fff" opacity=".8"/>
+          <circle cx="60" cy="88" r="2.5" fill="#fff" opacity=".8"/>
+          <circle cx="60" cy="96" r="2.5" fill="#fff" opacity=".8"/>
+          <!-- neck -->
+          <ellipse cx="60" cy="68" rx="14" ry="10" fill="#FAE0C8"/>
+          <!-- head -->
+          <circle cx="60" cy="46" r="28" fill="#FAE0C8"/>
+          <!-- hair grey bun -->
+          <ellipse cx="60" cy="22" rx="20" ry="14" fill="#C8C0C0"/>
+          <ellipse cx="60" cy="18" rx="12" ry="9" fill="#D8D0D0"/>
+          <!-- bun highlight -->
+          <ellipse cx="60" cy="16" rx="7" ry="5" fill="#E0D8D8" opacity=".6"/>
+          <!-- hair sides -->
+          <ellipse cx="36" cy="36" rx="10" ry="18" fill="#C8C0C0"/>
+          <ellipse cx="84" cy="36" rx="10" ry="18" fill="#C8C0C0"/>
+          <!-- face -->
+          <!-- eyes warm -->
+          <ellipse cx="50" cy="44" rx="5" ry="5.5" fill="#4A2A18"/>
+          <ellipse cx="70" cy="44" rx="5" ry="5.5" fill="#4A2A18"/>
+          <circle cx="51.8" cy="42.5" r="2" fill="white"/>
+          <circle cx="71.8" cy="42.5" r="2" fill="white"/>
+          <!-- smile wrinkles -->
+          <path d="M42 42 Q44 40 46 42" stroke="#C8907060" stroke-width="1" fill="none"/>
+          <path d="M74 42 Q76 40 78 42" stroke="#C8907060" stroke-width="1" fill="none"/>
+          <!-- nose small -->
+          <ellipse cx="60" cy="52" rx="4" ry="3" fill="#E8B090"/>
+          <!-- big warm smile -->
+          <path d="M48 58 Q60 68 72 58" stroke="#C87060" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <!-- cheek blush -->
+          <ellipse cx="43" cy="54" rx="8" ry="5" fill="#F4895A" opacity=".25"/>
+          <ellipse cx="77" cy="54" rx="8" ry="5" fill="#F4895A" opacity=".25"/>
+          <!-- arms out welcoming -->
+          <path d="M22 88 Q14 72 22 62" stroke="#F2C4CC" stroke-width="10" fill="none" stroke-linecap="round"/>
+          <path d="M98 88 Q106 72 98 62" stroke="#F2C4CC" stroke-width="10" fill="none" stroke-linecap="round"/>
+          <!-- hands -->
+          <circle cx="21" cy="60" r="6" fill="#FAE0C8"/>
+          <circle cx="99" cy="60" r="6" fill="#FAE0C8"/>
+        </svg>
+      </div>
+      <span class="oj-paw-left">🐾</span>
+      <span class="oj-paw-right">🐾</span>
+    </div>
+    <h2 class="oj-name">Oma Jannie</h2>
+    <p class="oj-title">🌸 De Lieve Oma van de Roedel</p>
+    <p class="oj-desc">Elke hond heeft soms een lieve oma nodig — wij hebben de absolute beste! Oma Jannie herkent alle honden voor wie ze zijn. Ze ziet elk karakter, elke grap en elk eigenwijs staartje. En iedereen is welkom voor een knuffel. Dag of nacht, weer of geen weer — Oma Jannie is er altijd voor alle hondjes.</p>
+    <div class="oj-tags">
+      <span class="oj-tag">🫶 Onvoorwaardelijke liefde</span>
+      <span class="oj-tag">🍪 Altijd een koekje klaar</span>
+      <span class="oj-tag">👓 Kent iedereen bij naam</span>
+    </div>
   </div>
 </section>
 
