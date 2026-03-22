@@ -27,8 +27,22 @@ nav.scrolled{box-shadow:0 4px 28px rgba(200,100,100,.1)}
 .nav-links a::after{content:'';position:absolute;left:0;bottom:-4px;right:0;height:2px;background:var(--orange);border-radius:2px;transform:scaleX(0);transition:transform .2s}
 .nav-links a:hover{color:var(--orange)}
 .nav-links a:hover::after{transform:scaleX(1)}
-.nav-cta{background:var(--orange);color:white;padding:.55rem 1.4rem;border-radius:50px;font-size:.85rem;font-weight:700;text-decoration:none;transition:background .2s,transform .2s;display:flex;align-items:center;gap:.4rem}
+.nav-cta{background:var(--orange);color:white;padding:.55rem 1.4rem;border-radius:50px;font-size:.85rem;font-weight:700;text-decoration:none;transition:background .2s,transform .2s;display:flex;align-items:center;gap:.4rem;border:none;cursor:pointer;font-family:'Nunito',sans-serif}
 .nav-cta:hover{background:var(--orange-light);transform:scale(1.04) rotate(-1deg)}
+.nav-dropdown{position:relative}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + .6rem);right:0;background:var(--white);border:2px solid var(--pink);border-radius:16px;padding:.6rem;min-width:240px;box-shadow:0 8px 32px rgba(200,100,100,.12);z-index:200}
+.nav-dropdown.open .nav-dropdown-menu{display:block}
+.nav-dropdown-menu a{display:block;padding:.7rem 1rem;border-radius:10px;font-size:.88rem;font-weight:700;color:var(--text-mid);text-decoration:none;transition:background .15s,color .15s}
+.nav-dropdown-menu a:hover{background:var(--pink-light);color:var(--orange)}
+.dropdown-question{font-size:.78rem;font-weight:700;color:var(--text-soft);text-transform:uppercase;letter-spacing:.1em;padding:.4rem 1rem .6rem;border-bottom:1.5px dashed var(--pink);margin-bottom:.4rem}
+.dropdown-option{display:flex;flex-direction:column;gap:.3rem;width:100%;padding:.7rem 1rem;border-radius:10px;font-size:.88rem;font-weight:700;color:var(--text-mid);text-decoration:none;transition:background .15s,color .15s;cursor:pointer;text-align:left;border:none;background:transparent;font-family:'Nunito',sans-serif}
+.dropdown-option:hover{background:var(--pink-light);color:var(--orange)}
+.dropdown-option span:first-child{color:var(--text-mid)}
+.dropdown-option:hover span:first-child{color:var(--orange)}
+.upload-input{display:none}
+.upload-hint{font-size:.75rem;font-weight:400;color:var(--text-soft);font-style:italic}
+.nee-option{color:var(--text-mid)}
+.nee-option:hover{background:#FDE8DE;color:#b84620}
 
 /* HERO */
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:76px;overflow:hidden}
@@ -217,7 +231,18 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.3)}
     <li><a href="#leden">Leden</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">🐶 Aanmelden</a>
+  <div class="nav-dropdown">
+    <button class="nav-cta" onclick="this.parentElement.classList.toggle('open')">🐶 Aanmelden ▾</button>
+    <div class="nav-dropdown-menu">
+      <p class="dropdown-question">Is jouw hond mooi?</p>
+      <label class="dropdown-option upload-option">
+        <span>📸 Ja, hier is een foto</span>
+        <input type="file" accept="image/*" class="upload-input" onchange="handleUpload(this)">
+        <span class="upload-hint" id="upload-hint">Kies een bestand...</span>
+      </label>
+      <button class="dropdown-option nee-option" onclick="handleNee()">😔 Nee, sorry MHC</button>
+    </div>
+  </div>
 </nav>
 
 <section class="hero">
@@ -413,6 +438,14 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.3)}
       <span class="lid-tag">Vrij Spelen</span>
     </div>
 
+    <div class="lid-card" data-paw="🐐" style="background:#F0FBF0;border-color:#A8D5A8">
+      <div class="lid-avatar" style="background:#2E7D32;">🐐</div>
+      <p class="lid-dogname">Ons Moeders</p>
+      <p class="lid-breed">Berggeit</p>
+      <p class="lid-owner">baasje van alle honden</p>
+      <span class="lid-tag" style="background:#F0FBF0;color:#2E7D32;border-color:#A8D5A8">De Baas</span>
+    </div>
+
   </div>
   <div class="leden-cta" style="margin-top:2.5rem">
     <span class="leden-cta-paws left">🐾</span>
@@ -515,4 +548,25 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.3)}
   <p>© 2025 Mooie Honden Club · Met liefde gemaakt voor honden én baasjes</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/clou
+<script>
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+document.addEventListener('click', (e) => {
+  const dd = document.querySelector('.nav-dropdown');
+  if (dd && !dd.contains(e.target)) dd.classList.remove('open');
+});
+function handleUpload(input) {
+  const hint = document.getElementById('upload-hint');
+  if (input.files && input.files[0]) {
+    hint.textContent = '✅ ' + input.files[0].name + ' — Wat een schoonheid!';
+    hint.style.color = 'var(--orange)';
+  }
+}
+function handleNee() {
+  const menu = document.querySelector('.nav-dropdown-menu');
+  menu.innerHTML = '<p style="padding:.8rem 1rem;font-size:.88rem;font-weight:700;color:var(--text-mid);text-align:center">😢 Dat is jammer...<br><span style="font-size:.78rem;font-weight:400;color:var(--text-soft)">Kom toch snuffelen, wie weet!</span></p>';
+  setTimeout(() => { document.querySelector('.nav-dropdown').classList.remove('open'); }, 2200);
+}
+</script>
+</body>
+</html>
