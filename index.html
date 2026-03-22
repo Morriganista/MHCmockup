@@ -18,12 +18,12 @@ html{scroll-behavior:smooth}
 body{font-family:'Nunito',sans-serif;background:var(--white);color:var(--text-dark);font-weight:400;overflow-x:hidden}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 5vw;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:2px dashed var(--pink);transition:box-shadow .3s}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.8rem 3vw;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:2px dashed var(--pink);transition:box-shadow .3s}
 nav.scrolled{box-shadow:0 4px 28px rgba(200,100,100,.1)}
-.nav-logo{display:flex;align-items:center;gap:.6rem;font-family:'Fredoka One',cursive;font-size:1.8rem;letter-spacing:.03em;color:var(--text-dark);text-decoration:none}
+.nav-logo{display:flex;align-items:center;gap:.4rem;font-family:'Fredoka One',cursive;font-size:1.4rem;letter-spacing:.03em;color:var(--text-dark);text-decoration:none}
 .nav-logo span{color:var(--orange)}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{font-size:.9rem;font-weight:700;letter-spacing:.06em;color:var(--text-mid);text-decoration:none;transition:color .2s;position:relative}
+.nav-links{display:flex;gap:1rem;list-style:none;flex-wrap:nowrap}
+.nav-links a{font-size:.75rem;font-weight:700;letter-spacing:.02em;color:var(--text-mid);text-decoration:none;transition:color .2s;position:relative;white-space:nowrap}
 .nav-links a::after{content:'';position:absolute;left:0;bottom:-4px;right:0;height:2px;background:var(--orange);border-radius:2px;transform:scaleX(0);transition:transform .2s}
 .nav-links a:hover{color:var(--orange)}
 .nav-links a:hover::after{transform:scaleX(1)}
@@ -276,7 +276,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.3)}
 <body>
 
 <nav id="main-nav">
-  <a href="#" class="nav-logo">🐾 De <span>MHC</span></a>
+  <a href="#" class="nav-logo">🐾 <span>MHC</span></a>
   <ul class="nav-links">
     <li><a href="#over-ons">Over Ons</a></li>
     <li><a href="#specialiteiten">Specialiteiten</a></li>
@@ -727,7 +727,7 @@ footer p{font-size:.8rem;color:rgba(255,255,255,.3)}
 </section>
 
 <footer>
-  <span class="logo">🐾 De <span>MHC</span></span>
+  <span class="logo">🐾 <span>MHC</span></span>
   <p>© 2025 Mooie Honden Club · Met liefde gemaakt voor honden én baasjes</p>
 </footer>
 
